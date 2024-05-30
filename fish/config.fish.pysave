@@ -1,0 +1,378 @@
+set -gx EDITOR (which nvim)
+set -gx VISUAL $EDITOR
+set -gx SUDO_EDITOR $EDITOR
+
+### ADDING TO THE PATH
+set -x fish_user_paths
+
+fish_add_path /usr/local/bin
+fish_add_path $HOME/.bin
+fish_add_path $HOME/.local/bin
+
+# homebrew & macports
+set -gx BREW /opt/homebrew
+fish_add_path $BREW/bin
+fish_add_path $BREW/sbin
+fish_add_path $BREW/opt/grep/libexec/gnubin
+fish_add_path $BREW/opt/llvm/bin
+fish_add_path /opt/local/bin
+# doom emacs
+fish_add_path $HOME/.emacs.d/bin
+# c/c++
+set -gx CPATH /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.0.sdk/usr/include
+# rust/cargo
+fish_add_path $HOME/.cargo/bin
+# zig
+# fish_add_path $HOME/.zig_master/build/stage3/bin
+# fish_add_path $HOME/.zls_master/zig-out/bin
+# fish_add_path $HOME/.zig_bin
+alias zig_freestanding "zig build-lib -target wasm32-freestanding -dynamic -rdynamic"
+alias zig_wasi "zig build-exe -target wasm32-wasi"
+# llvm
+fish_add_path /opt/homebrew/opt/llvm/bin
+set -gx LDFLAGS -L/opt/homebrew/opt/llvm/lib
+set -gx CPPFLAGS -I/opt/homebrew/opt/llvm/include
+
+# erlang & elixir
+fish_add_path $HOME/.cache/rebar3/bin
+fish_add_path $HOME/.local/share/nvim/mason/bin
+
+# go
+# fish_add_path /usr/local/go/bin
+# fish_add_path $(go env GOBIN)
+# fish_add_path $(go env GOPATH)/bin
+# surrealdb
+fish_add_path $HOME/.surrealdb
+# deno
+set -g DENO_INSTALL $HOME/.deno
+fish_add_path $DENO_INSTALL/bin
+# julia
+fish_add_path /Applications/Julia-1.9.app/Contents/Resources/julia/bin
+
+# starship
+fish_add_path /opt/homebrew/bin/starship
+# ytui-music
+# fish_add_path $HOME/.ytui-music
+# pacman
+# set -gx BOOTSTRAP=/opt/pacman
+# fish_add_path $BOOTSTRAP/bin
+
+# android
+set -gx ANDROID_HOME $HOME/Library/Android/sdk
+fish_add_path $ANDROID_HOME/emulator
+fish_add_path $ANDROID_HOME/platform-tools
+
+# llvm
+set -gx LDFLAGS -L/opt/homebrew/opt/llvm/lib
+set -gx CPPFLAGS -I/opt/homebrew/opt/llvm/include
+
+# ocaml
+source /Users/skoler/.opam/opam-init/init.fish >/dev/null 2>/dev/null; or true
+set -gx DISPLAY ":0.0"
+
+# postgres
+fish_add_path /Applications/Postgres.app/Contents/Versions/15/bin
+
+# pyenv
+set -Ux PYENV_ROOT $HOME/.pyenv
+fish_add_path $PYENV_ROOT/bin
+pyenv init - | source
+set -gx SDKROOT /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.0.sdk
+set -gx MACOSX_DEPLOYMENT_TARGET 14.0
+# eval "$(pyenv virtualenv-init -)"
+
+abbr pepip "pipenv run pip"
+
+# stable diffution webui
+set -gx COMMANDLINE_ARGS --xformers --xformers-flash-attention --opt-channelslast --enable-insecure-extension-access
+# set -gx COMMANDLINE_ARGS --opt-sdp-no-mem-attention --opt-channelslast --enable-insecure-extension-access
+
+# latex
+fish_add_path /Library/TeX/texbin
+
+# locale
+export LANG="en_US.UTF-8"
+export LC_COLLATE="en_US.UTF-8"
+export LC_CTYPE="en_US.UTF-8"
+export LC_MESSAGES="en_US.UTF-8"
+export LC_MONETARY="en_US.UTF-8"
+export LC_NUMERIC="en_US.UTF-8"
+export LC_TIME="en_US.UTF-8"
+export LC_CTYPE="en_US.UTF-8"
+
+# Fish
+set fish_emoji_width 2
+
+### Aliases & Functions
+alias src "source ~/.config/fish/config.fish"
+
+# homebrew
+abbr bwI 'brew install'
+abbr bwE 'brew reinstall'
+abbr bwR 'brew remove'
+function bwU
+    echo "Updating homebrew itself:"
+    brew update
+    # ; sketchybar --trigger brew_update
+    echo _______________________________
+    echo " "
+    brew upgrade
+    # ; sketchybar --trigger brew_update
+    echo "Everything is up-to-date."
+end
+abbr bwO 'brew outdated;'
+abbr bwT 'brew tap'
+abbr bwL 'brew list'
+abbr bwLp 'brew list | wc -l'
+abbr bwS 'brew services'
+abbr bwRestart 'brew services restart'
+abbr bwStart 'brew services start'
+abbr bwStop 'brew services stop'
+function bwH
+    echo "List of brew aliases:"
+    echo _______________________________
+    echo " "
+    echo "bw          =      brew"
+    echo "bwI         =      brew install"
+    echo "bwE         =      brew reinstall"
+    echo "bwR         =      brew remove"
+    echo "bwU         =      update everything"
+    echo "bwO         =      brew outdated"
+    echo "bwS         =      brew services"
+    echo "bwRestart   =      brew services restart"
+    echo "bwStart     =      brew services start"
+    echo "bwStop      =      brew services stop"
+end
+
+# emacs
+# alias emacs "emacsclient -c -a 'emacs'"
+# alias em "emacsclient -t"
+
+# fish plugins
+fish_vi_key_bindings
+
+# neofetch
+abbr nf neofetch
+
+# neovim
+fish_add_path /Users/skoler/Downloads/nvim-macos/bin
+# alias v ~/Downloads/nvim-macos/bin/nvim
+abbr v nvim
+abbr vim nvim
+abbr nev neovide
+
+# Tmux
+abbr t tmux
+abbr tc 'tmux attach'
+abbr ta 'tmux attach -t'
+abbr tad 'tmux attach -d -t'
+abbr ts 'tmux new -s'
+abbr tl 'tmux ls'
+abbr tk 'tmux kill-session -t'
+abbr mux tmuxinator
+alias x exit
+
+# Files & Directories
+abbr mv "mv -iv"
+abbr cp "cp -riv"
+abbr mkdir "mkdir -vp"
+alias ls="eza --color=always --icons --group-directories-first"
+alias la 'eza --color=always --icons --group-directories-first --all'
+alias ll 'eza --color=always --icons --group-directories-first --all --long'
+abbr l ll
+abbr ncdu "ncdu --color dark"
+
+# Editor
+abbr vim nvim
+abbr vi nvim
+abbr v nvim
+alias vimpager 'nvim - -c "lua require(\'util\').colorize()"'
+abbr vd "VIM=~/projects/neovim nvim --luamod-dev"
+abbr sv sudoedit
+abbr vudo sudoedit
+alias lazyvim "NVIM_APPNAME=lazyvim nvim"
+abbr lv lazyvim
+alias bt "coredumpctl -1 gdb -A '-ex \"bt\" -q -batch' 2>/dev/null | awk '/Program terminated with signal/,0' | bat -l cpp --no-pager --style plain"
+
+# Dev
+abbr git hub
+abbr topgit topgrade --only git_repos
+abbr g hub
+abbr gg lazygit
+abbr gl 'hub l --color | devmoji --log --color | less -rXF'
+abbr gs "hub st"
+abbr gb "hub checkout -b"
+abbr gc "hub commit"
+abbr gpr "hub pr checkout"
+abbr gm "hub branch -l main | rg main > /dev/null 2>&1 && hub checkout main || hub checkout master"
+abbr gcp "hub commit -p"
+abbr gpp "hub push"
+abbr gp "hub pull"
+# alias tn "npx --no-install ts-node --transpile-only"
+# abbr tt "tn src/tt.ts"
+
+# Others
+abbr df "grc /bin/df -h"
+abbr fda "fd -IH"
+abbr rga "rg -uu"
+abbr grep rg
+
+# Davinci Resolve
+set -gx PYTHONHOME "/Users/skoler/.pyenv/shims/python"
+set -gx RESOLVE_SCRIPT_API "/Library/Application Support/Blackmagic Design/DaVinci Resolve/Developer/Scripting/"
+set -gx RESOLVE_SCRIPT_LIB "/Applications/DaVinci Resolve/DaVinci Resolve.app/Contents/Libraries/Fusion/fusionscript.so"
+set -gx PYTHONPATH "$PYTHONPATH:$RESOLVE_SCRIPT_API/Modules/"
+
+# zig upgrade
+function zig_upgrade
+    cd ~/.zig_master
+    git pull
+    cd build
+    cmake .. -DZIG_STATIC_LLVM=ON -DCMAKE_PREFIX_PATH="$(brew --prefix llvm);$(brew --prefix zstd)"
+    make install
+    prevd
+    prevd
+    zls_upgrade
+end
+
+# zls upgrade
+function zls_upgrade
+    cd ~/.zls_master
+    git pull
+    zig build -Doptimize=ReleaseSafe
+    cp ~/.zls_master/zig-out/bin/zls ~/.local/share/nvim/mason/packages/zls/bin
+    prevd
+end
+
+# nvim cache clean
+function nvim_clean
+    rm -rf ~/.local/share/nvim
+    rm -rf ~/.local/state/nvim
+    rm -rf ~/.cache/nvim
+end
+
+# zig-wasm
+function zw
+    zig build-exe $argv[1] -target wasm32-wasi
+end
+
+function zwf
+    zig build-lib $argv[1] -target wasm32-freestanding -dynamic -rdynamic
+end
+
+# shpotify
+# alias play 'spotify play' # play a song on spotify
+# alias pause 'spotify pause' # pause a song on spotify
+# alias liked 'spotify play list Liked Songs' # play song from liked songs
+# alias next 'spotify next' # skip a track
+# alias prev 'spotify prev' # go back to the previous track
+# alias jumpto 'spotify pos' # jump to a spacific moment in the song (usage: jumpto <time>)
+# alias nowplaying 'spotify status' # see details about currently playing song
+# alias shuffle 'spotify toggle shuffle' # toggle shuffle
+
+# sudo
+# function sudo
+#     if test "$argv" = !!
+#         eval command sudo $history[1]
+#     else
+#         command sudo $argv
+#     end
+# end
+
+# directory & navigation
+alias .. "cd .."
+alias ... "cd ../.."
+alias .3 "cd ../../.."
+alias .4 "cd ../../../.."
+alias .5 "cd ../../../../.."
+
+# when creating a directory, create all parent directories
+alias mkdir 'mkdir -pv'
+
+# git
+alias lg lazygit
+alias clone "hub clone"
+
+# confirm before overwriting something
+alias cp "cp -i"
+alias mv 'mv -i'
+alias rm 'rm -i'
+alias df 'df -h'
+
+# youtube-dl
+alias yta-aac "youtube-dl -x --audio-format aac "
+alias yta-best "youtube-dl -x --audio-format best "
+alias yta-flac "youtube-dl -x --audio-format flac "
+alias yta-m4a "youtube-dl -x --audio-format m4a "
+alias yta-mp3 "youtube-dl -x --audio-format mp3 "
+alias yta-opus "youtube-dl -x --audio-format opus "
+alias yta-vorbis "youtube-dl -x --audio-format vorbis "
+alias yta-wav "youtube-dl -x --audio-format wav "
+alias ytv-best "youtube-dl -f bestvideo+bestaudio "
+
+##############################################################
+# FCPX
+##############################################################
+alias fcp "node /Users/skoler/devs/personal/repos/srt2subtitles-cli/cli.js"
+alias trimV "ffmpeg -i $argv[1] -ss $argv[2] -to $argv[3] -c copy $argv[4]" 
+alias volumeAU "ffmpeg -i $argv[1] -filter:a 'volume=2' $argv[2]"
+# Copy left channel to right  
+alias chanRemap "ffmpeg -i $argv[1] -filter:a 'channelmap=0-0|0-1' $argv[2]"
+# Concat
+alias concatV "ffmpeg concat -i $argv[1] -c copy $argv[2]"
+
+##############################################################
+# DT
+##############################################################
+# Function for printing a column (splits input on whitespace)
+# ex: echo 1 2 3 | coln 3
+# output: 3
+function coln
+    while read -l input
+        echo $input | awk '{print $'$argv[1]'}'
+    end
+end
+# Function for printing a row
+# ex: seq 3 | rown 3
+# output: 3
+function rown --argument index
+    sed -n "$index p"
+end
+# Function for ignoring the first 'n' lines
+# ex: seq 10 | skip 5
+# results: prints everything but the first 5 lines
+function skip --argument n
+    tail +(math 1 + $n)
+end
+# Function for taking the first 'n' lines
+# ex: seq 10 | take 5
+# results: prints only the first 5 lines
+function take --argument number
+    head -$number
+end
+
+function kill
+    command kill -KILL $(pidof $argv)
+end
+
+function suyabai
+    set SHA256 $(shasum -a 256 $(which yabai) | awk "{print \$1}")
+    if test -f "/private/etc/sudoers.d/yabai"
+        sudo sed -i '' -e 's/sha256:[[:alnum:]]*/sha256:'$SHA256'/' /private/etc/sudoers.d/yabai
+    else
+        echo "sudoers file does not exists"
+    end
+end
+
+function zen
+    ~/.config/sketchybar/plugins/zen.sh $argv[1]
+end
+
+### startup ###
+starship init fish | source
+fish_add_path $HOME/.spicetify
+
+# bun
+set --export BUN_INSTALL "$HOME/.bun"
+set --export PATH $BUN_INSTALL/bin $PATH
+fish_add_path /Users/skoler/.spicetify

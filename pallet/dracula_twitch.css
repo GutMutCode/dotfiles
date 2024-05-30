@@ -1,0 +1,337 @@
+/* ==UserStyle==
+@name           Twitch Dracula
+@namespace      github.com/dracula/twitch
+@homepageURL    https://github.com/dracula/twitch
+@version        1.1.0
+@description    Soothing pastel theme for Twitch
+@author         Dracula - mustafakhalaf-git
+@preprocessor   less
+@updateURL      https://githubusercontent.com/dracula/twitch/main/src/dracula.user.css
+@license        MIT
+
+@var select darkTheme "Dark Variant" ["dracula_theme:Dracula"]
+@var select accentColour  "Accent" ["rosewater:Rosewater", "flamingo:Flamingo", "pink:Pink", "mauve:Mauve", "red:Red*", "perple:Perple", "peach:Peach", "yellow:Yellow", "green:Green", "teal:Teal", "blue:Blue", "sapphire:Sapphire", "cyan:Cyan", "lavender:Lavender", "subtext0:Grey", "orange:Orange"]
+==/UserStyle== */
+@-moz-document domain("twitch.tv") {
+    @dracula: {
+        @dracula_theme: {
+            @rosewater: #f5e0dc;
+            @flamingo: #f2cdcd;
+            @pink: #ff79c6;
+            @mauve: #cba6f7;
+            @red: #ff5555;
+            @perple: #bd93f9;
+            @peach: #fab387;
+            @yellow: #f1fa8c;
+            @green: #50fa7b;
+            @orange: #ffb86c;
+            @teal: #94e2d5;
+            @cyan: #8be9fd;
+            @sapphire: #74c7ec;
+            @blue: #89b4fa;
+            @lavender: #b4befe;
+            @text: #cdd6f4;
+            @subtext1: #bac2de;
+            @subtext0: #a6adc8;
+            @overlay2: #9399b2;
+            @overlay1: #7f849c;
+            @overlay0: #6c7086;
+            @surface2: #585b70;
+            @surface1: #45475a;
+            @surface0: #313244;
+            @base: #44475a;
+            @mantle: #282a36;
+            @crust: #44475a;
+        }
+    }
+
+    .tw-root--theme-dark {
+        #dracula(@darkTheme, @accentColour);
+    }
+
+    #dracula(@lookup, @accent) {
+        @rosewater: @dracula[@@lookup][@rosewater];
+        @flamingo: @dracula[@@lookup][@flamingo];
+        @pink: @dracula[@@lookup][@pink];
+        @mauve: @dracula[@@lookup][@mauve];
+        @red: @dracula[@@lookup][@red];
+        @perple: @dracula[@@lookup][@perple];
+        @peach: @dracula[@@lookup][@peach];
+        @yellow: @dracula[@@lookup][@yellow];
+        @green: @dracula[@@lookup][@green];
+        @teal: @dracula[@@lookup][@teal];
+        @cyan: @dracula[@@lookup][@cyan];
+        @sapphire: @dracula[@@lookup][@sapphire];
+        @blue: @dracula[@@lookup][@blue];
+        @lavender: @dracula[@@lookup][@lavender];
+        @text: @dracula[@@lookup][@text];
+        @subtext1: @dracula[@@lookup][@subtext1];
+        @subtext0: @dracula[@@lookup][@subtext0];
+        @overlay2: @dracula[@@lookup][@overlay2];
+        @overlay1: @dracula[@@lookup][@overlay1];
+        @overlay0: @dracula[@@lookup][@overlay0];
+        @surface2: @dracula[@@lookup][@surface2];
+        @surface1: @dracula[@@lookup][@surface1];
+        @surface0: @dracula[@@lookup][@surface0];
+        @base: @dracula[@@lookup][@base];
+        @mantle: @dracula[@@lookup][@mantle];
+        @crust: @dracula[@@lookup][@crust];
+        @accent-colour: @dracula[@@lookup][@@accent];
+        @orange: @dracula[@@lookup][@orange];
+
+        & body {
+            background-color: @base;
+        }
+
+        & .carousel-metadata {
+            background: @crust;
+        }
+        & .carousel-metadata--fadeout {
+            background: @crust;
+        }
+
+        .chat-scrollable-area__message-container {
+            background-color: @mantle;
+        }
+        .jmUA-dj {
+            background-color: @mantle;
+        }
+        .gzYMLv {
+            color: @text;
+        }
+        .gZxBHd {
+            color: #fff;
+            &:hover {
+                color: #fff;
+            }
+        }
+        .bTJhJp {
+            color: #fff;
+        }
+        .ffZeRf {
+            color: #fff !important;
+        }
+        .igzOaC {
+            color: @text;
+        }
+        .bEHknf {
+            color: #fff;
+        }
+        .side-nav-card__link:hover {
+            background: @surface0 !important;
+        }
+        .dDyYOA {
+            color: #fff !important;
+        }
+        .reward-icon__cost {
+            color: #fff !important;
+        }
+        .kLILeB {
+            color: #fff !important;
+        }
+        .navigation-link__active-indicator {
+            background-color: @@accent !important;
+        }
+        .footer {
+            background: @crust;
+        }
+        & .whispers-list-item--selected,
+        & .whispers-list-item:hover {
+            background-color: @surface0;
+        }
+        & .thread-header__title-bar-container--focused {
+            background-color: @mantle;
+        }
+        & .thread-header__title-bar-container {
+            background: @mantle;
+        }
+        & .thread-header__click-area:focus .thread-header__title-bar-container {
+            background-color: @mantle;
+        }
+
+        &,
+        .side-nav-card__link:hover {
+            --color-background-input-focus: @crust --color-background-interactable-hover: @surface0;
+            --color-background-button-text-default: @crust;
+            --color-background-float: @crust;
+            --color-text-input-placeholder: @text;
+            --color-border-input: @base;
+            --color-text-button-primary: @crust;
+            --color-text-overlay: @crust;
+            --color-text-base: @subtext1;
+            --color-text-alt: @subtext1;
+            --color-text-alt-2: @text;
+            --color-background-alt-2: @crust;
+            --color-text-tag: @text;
+            --color-background-button-secondary-default: @crust;
+            --color-background-tag-default: @mantle;
+            --color-background-tag-hover: @crust;
+            --color-background-float: @mantle;
+            --color-background-body: @base;
+            --color-background-base: @mantle;
+            --color-background-alt: @mantle;
+            --color-background-input: @crust;
+            --color-brand-muted-cupcake: @pink;
+            --color-brand-muted-mint: @green;
+            --color-brand-muted-cyan: @cyan;
+            --color-brand-muted-blush: @peach --color-brand-muted-canary: @peach --color-brand-muted-lavender: @lavender;
+            --color-brand-muted-mustard: @yellow;
+            --color-brand-muted-emerald: @green;
+            --color-brand-muted-coral: @peach --color-brand-muted-ocean: @blue;
+            --color-brand-accent-grape: @mauve;
+            --color-brand-accent-dragonfruit: @flamingo;
+            --color-brand-accent-carrot: @peach --color-brand-accent-sun: @peach --color-brand-accent-lime: @green;
+            --color-brand-accent-turquoise: @cyan;
+            --color-brand-accent-eggplant: @mauve;
+            --color-brand-accent-wine: @flamingo;
+            --color-brand-accent-slime: @green;
+            --color-brand-accent-seafoam: @green;
+            --color-brand-accent-cherry: @red;
+            --color-brand-accent-marine: @blue;
+            --color-brand-accent-seaweed: @teal;
+            --color-brand-accent-fiji: @green;
+            --color-brand-accent-blueberry: @blue;
+            --color-brand-accent-arctic: @cyan;
+            --color-brand-accent-highlighter: @yellow;
+            --color-brand-accent-flamingo: @flamingo;
+            --color-brand-accent-ruby: @red;
+            --color-brand-accent-punch: @flamingo;
+            --color-brand-accent-creamsicle: @yellow;
+            --color-red: @perple;
+            --color-red-darker: @red;
+            --color-orange: @peach
+            --color-yellow: @yellow;
+            --color-green: @green;
+            --color-green-darker: @green;
+            --color-blue: @blue;
+            --color-prime-blue: @blue;
+            --color-magenta: @flamingo;
+            --color-error: @red;
+            --color-warn: @yellow;
+            --color-success: @green;
+            --color-info: @blue;
+            --color-accent: @accent-colour;
+            --color-twitch-purple: @accent-colour;
+            --color-twitch-purple-4: @accent-colour;
+            --color-twitch-purple-5: @accent-colour;
+            --color-twitch-purple-6: @accent-colour;
+            --color-twitch-purple-7: @accent-colour;
+            --color-twitch-purple-8: @accent-colour;
+            --color-twitch-purple-9: @accent-colour;
+            --color-twitch-purple-10: @accent-colour;
+            --color-twitch-purple-11: @accent-colour;
+            --color-twitch-purple-12: @accent-colour;
+            --color-orange-7: @yellow;
+            --color-orange-8: @yellow;
+            --color-orange-9: @yellow;
+            --color-orange-10: @yellow;
+            --color-orange-11: @yellow;
+            --color-orange-12: @yellow;
+            --color-orange-13: @yellow;
+            --color-yellow-6: @peach --color-yellow-7: @peach --color-yellow-8: @peach --color-yellow-9: @peach --color-yellow-10: @peach --color-yellow-11: @peach --color-yellow-12: @peach --color-yellow-13: @peach --color-yellow-14: @peach --color-yellow-15: @peach --color-green-5: @green;
+            --color-green-6: @green;
+            --color-green-7: @green;
+            --color-green-8: @green;
+            --color-green-9: @green;
+            --color-green-10: @green;
+            --color-green-11: @green;
+            --color-green-12: @green;
+            --color-green-13: @green;
+            --color-green-14: @green;
+            --color-green-15: @teal;
+            --color-cyan-9: @sapphire;
+            --color-cyan-10: @sapphire;
+            --color-cyan-11: @sapphire;
+            --color-cyan-12: @sapphire;
+            --color-cyan-13: @sapphire;
+            --color-cyan-14: @sapphire;
+            --color-cyan-15: @cyan;
+            --color-blue-4: @blue;
+            --color-blue-5: @blue;
+            --color-blue-6: @blue;
+            --color-blue-7: @blue;
+            --color-blue-8: @blue;
+            --color-blue-9: @blue;
+            --color-blue-10: @cyan;
+            --color-blue-11: @cyan;
+            --color-magenta-5: @flamingo;
+            --color-magenta-6: @flamingo;
+            --color-magenta-7: @flamingo;
+            --color-magenta-8: @flamingo;
+            --color-magenta-9: @flamingo;
+            --color-magenta-10: @flamingo;
+            --color-magenta-11: @pink;
+            --color-magenta-12: @pink;
+            --color-red-4: @red;
+            --color-red-5: @red;
+            --color-red-6: @red;
+            --color-red-7: @red;
+            --color-red-8: @red;
+            --color-red-9: @red;
+            --color-red-10: @red;
+            --color-red-11: @peach --color-red-12: @peach --color-twitter: @blue;
+            --color-facebook: @blue;
+            --color-reddit: @peach --color-snapchat: @yellow;
+            --color-instagram: @blue;
+            --color-youtube: @red;
+            --color-paypal: @blue;
+            --color-paypal-blue: @blue;
+            --color-paypal-yellow: @yellow;
+            --color-venmo: @blue;
+            --color-vk: @blue;
+            --color-amazon: @yellow; //background: @surface0;
+            --color-background-button-text-hover: @surface0;
+            --color-text-accessible-red: @red;
+        }
+    }
+}
+
+@-moz-document domain("dashboard.twitch.tv") {
+    @dracula: {
+        @dracula_theme: {
+            @rosewater: #f5e0dc;
+            @flamingo: #f2cdcd;
+            @pink: #ff79c6;
+            @mauve: #cba6f7;
+            @red: #ff5555;
+            @perple: #bd93f9;
+            @peach: #fab387;
+            @yellow: #f1fa8c;
+            @green: #50fa7b;
+            @orange: #ffb86c;
+            @teal: #94e2d5;
+            @cyan: #8be9fd;
+            @sapphire: #74c7ec;
+            @blue: #89b4fa;
+            @lavender: #b4befe;
+            @text: #cdd6f4;
+            @subtext1: #bac2de;
+            @subtext0: #a6adc8;
+            @overlay2: #9399b2;
+            @overlay1: #7f849c;
+            @overlay0: #6c7086;
+            @surface2: #585b70;
+            @surface1: #45475a;
+            @surface0: #313244;
+            @base: #44475a;
+            @mantle: #282a36;
+            @crust: #44475a;
+        }
+    }
+
+    .tw-root--theme-dark {
+        #dracula(@darkTheme);
+    }
+
+    #dracula(@lookup) {
+        @base: @dracula[@@lookup][@base];
+        @mantle: @dracula[@@lookup][@mantle];
+        .simplebar-content {
+            background-color: @mantle;
+        }
+        .scrollable-area--suppress-scroll-x > .simplebar-scroll-content,
+        .scrollable-area--suppress-scroll-x > .simplebar-scroll-content > .simplebar-content {
+            background-color: @base;
+        }
+    }
+}

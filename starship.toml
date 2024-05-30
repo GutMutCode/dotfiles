@@ -1,0 +1,54 @@
+# ~/.config/starship.toml
+
+# Move the directory to the second line
+add_newline = true
+
+# Setting Icons for git status
+[git_status]
+# style = "bold white"
+conflicted = "🏳"
+ahead = "🏎💨"
+behind = "😰"
+diverged = "😵"
+up_to_date = ""
+untracked = "🤷"
+stashed = "📦"
+modified = "📝"
+staged = '[++\($count\)](green)'
+renamed = "👅"
+deleted = "🗑"
+disabled = false
+
+[time]
+disabled = true
+format = ' [\[ $time \]]($style) '
+time_format = "%T"
+#utc_time_offset = "-5"
+time_range = "00:00:00-24:00:00"
+use_12hr = false
+style = "bold green"
+#time = 10:03:16
+
+# Replace the '❯' symbol in the prompt with other symbol
+[character] # The name of the module we are configuring is 'character'
+success_symbol = '[⋊>](bold cyan)' # The 'success_symbol' segment is being set to '➜' with the color 'bold green'
+error_symbol = '[⋊>](bold red)' # The 'success_symbol' segment is being set to '➜' with the color 'bold green'
+
+[aws]
+style = "bold #ffb86c"
+
+[cmd_duration]
+style = "bold #f1fa8c"
+
+[directory]
+style = "bold #50fa7b"
+
+[git_branch]
+style = "bold #ff79c6"
+
+[hostname]
+style = "bold #bd93f9"
+
+[username]
+format = "[$user]($style) on "
+style_user = "bold #8be9fd"

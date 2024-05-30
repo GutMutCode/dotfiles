@@ -1,0 +1,113 @@
+########################################################
+# Changing Window Focus
+########################################################
+# Space Navigation (four spaces per display): lalt - {1, 2, 3, 4}
+alt - 1    : set SPACES $(yabai -m query --displays --display | jq '.spaces[]') && [ -n $SPACES[1] ] && yabai -m space --focus $SPACES[1]
+alt - 2    : set SPACES $(yabai -m query --displays --display | jq '.spaces[]') && [ -n $SPACES[2] ] && yabai -m space --focus $SPACES[2]
+alt - 3    : set SPACES $(yabai -m query --displays --display | jq '.spaces[]') && [ -n $SPACES[3] ] && yabai -m space --focus $SPACES[3]
+alt - 4    : set SPACES $(yabai -m query --displays --display | jq '.spaces[]') && [ -n $SPACES[4] ] && yabai -m space --focus $SPACES[4]
+
+# Window Navigation (through display borders): lalt - {h, j, k, l}
+alt - x    : yabai -m window --focus recent
+alt - h    : yabai -m window --focus west  || yabai -m display --focus west
+alt - j    : yabai -m window --focus south || yabai -m display --focus south
+alt - k    : yabai -m window --focus north || yabai -m display --focus north
+alt - l    : yabai -m window --focus east  || yabai -m display --focus east
+
+# change window focus between spaces
+alt - p : yabai -m display --focus prev
+alt - n : yabai -m display --focus next
+
+# Flot / Unflot window
+alt - space : yabai -m window --toggle float
+
+ctrl + alt - 1 : yabai -m space --focus  1 || skhd -k "ctrl + alt + cmd - 1"
+ctrl + alt - 2 : yabai -m space --focus  2 || skhd -k "ctrl + alt + cmd - 2"
+ctrl + alt - 3 : yabai -m space --focus  3 || skhd -k "ctrl + alt + cmd - 3"
+ctrl + alt - 4 : yabai -m space --focus  4 || skhd -k "ctrl + alt + cmd - 4"
+ctrl + alt - 5 : yabai -m space --focus  5 || skhd -k "ctrl + alt + cmd - 5"
+ctrl + alt - 6 : yabai -m space --focus  6 || skhd -k "ctrl + alt + cmd - 6"
+ctrl + alt - 7 : yabai -m space --focus  7 || skhd -k "ctrl + alt + cmd - 7"
+ctrl + alt - 8 : yabai -m space --focus  8 || skhd -k "ctrl + alt + cmd - 8"
+ctrl + alt - 9 : yabai -m space --focus  9 || skhd -k "ctrl + alt + cmd - 9"
+ctrl + alt - 0 : yabai -m space --focus 10 || skhd -k "ctrl + alt + cmd - 0"
+
+########################################################
+# moving windows around
+########################################################
+# swap windows
+shift + alt - j : yabai -m window --warp south
+shift + alt - k : yabai -m window --warp north
+shift + alt - h : yabai -m window --warp west
+shift + alt - l : yabai -m window --warp east
+
+# move window to prev & next space
+# shift + alt - p : yabai -m window --display prev
+# shift + alt - n : yabai -m window --display next
+shift + alt - n : yabai -m window --space next && yabai -m space --focus next
+shift + alt - p : yabai -m window --space prev && yabai -m space --focus prev
+
+# Toggle split orientation of the selected windows node: shift + alt - s
+shift + alt - s : yabai -m window --toggle split
+
+# Moving windows between spaces: shift + alt - {1, 2, 3, 4, p, n } (Assumes 4 Spaces Max per Display)
+shift + alt - 1 : set SPACES $(yabai -m query --displays --display | jq '.spaces[]') && [ -n $SPACES[1] ] \
+                  && yabai -m window --space $SPACES[1];
+
+shift + alt - 2 : set SPACES $(yabai -m query --displays --display | jq '.spaces[]') && [ -n $SPACES[2] ] \
+                  && yabai -m window --space $SPACES[2];
+
+shift + alt - 3 : set SPACES $(yabai -m query --displays --display | jq '.spaces[]') && [ -n $SPACES[3] ] \
+                  && yabai -m window --space $SPACES[3];
+
+shift + alt - 4 : set SPACES $(yabai -m query --displays --display | jq '.spaces[]') && [ -n $SPACES[4] ] \
+                  && yabai -m window --space $SPACES[4];
+
+
+
+
+########################################################
+# Modifying the Layout
+########################################################
+
+# rotate layout clockwise
+shift + alt - r : yabai -m space --rotate 90
+# flip along y-axis
+shift + alt - y : yabai -m space --mirror y-axis
+# flip along x-axis
+shift + alt - x : yabai -m space --mirror x-axis
+# toggle floating
+shift + alt - t : yabai -m window --toggle float --grid 4:4:1:1:2:2
+
+# Modifying Windows
+
+# maximize Windows
+shift + alt - m : yabai -m window --toggle zoom-fullscreen;
+alt - m : yabai -m window --toggle zoom-parent;
+# Equalize size of windows: ctrl + lalt - e
+shift + alt - e : yabai -m space --balance
+
+## Resize (ctrl + lalt - ...)
+# Resize windows: ctrl + lalt - {h, j, k, l}
+ctrl + alt - h    : yabai -m window --resize right:-100:0 || yabai -m window --resize left:-100:0
+ctrl + alt - j    : yabai -m window --resize bottom:0:100 || yabai -m window --resize top:0:100
+ctrl + alt - k    : yabai -m window --resize bottom:0:-100 || yabai -m window --resize top:0:-100
+ctrl + alt - l    : yabai -m window --resize right:100:0 || yabai -m window --resize left:100:0
+
+# Enable / Disable gaps in current workspace: ctrl + alt - g
+ctrl + alt - g : yabai -m space --toggle padding; yabai -m space --toggle gap
+
+# Enable / Disable gaps in current workspace: ctrl + alt - g
+# ctrl + alt - b : yabai -m config window_border off
+# cmd + ctrl + alt - b : yabai -m config window_border on
+
+# open terminal
+alt - t : /Applications/Kitty.app/Contents/MacOS/kitty --single-instance -d ~ &> /dev/null
+alt - c : /Applications/Neovide.app/Contents/MacOS/neovide
+alt - i : /Applications/Arc.app/Contents/MacOS/Arc
+# alt - v : /Applications/Visual\ Studio\ Code.app/Contents/MacOS/Electron
+# alt - s : /Applications/Spotify.app/Contents/MacOS/Spotify
+lalt - e : /Applications/Emacs.app/Contents/MacOS/Emacs
+
+# open chrome
+# alt - space : yabai -m window --toggle float
