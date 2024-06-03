@@ -6,8 +6,8 @@
 
 ;; Some functionality uses this to identify you, e.g. GPG configuration, email
 ;; clients, file templates and snippets. It is optional.
-;; (setq user-full-name "John Doe"
-;;       user-mail-address "john@doe.com")
+(setq user-full-name "GutMutCode"
+      user-mail-address "gutmutcode@gmail.com")
 
 ;; Doom exposes five (optional) variables for controlling fonts in Doom:
 ;;
@@ -21,8 +21,12 @@
 ;; See 'C-h v doom-font' for documentation and more examples of what they
 ;; accept. For example:
 ;;
-;;(setq doom-font (font-spec :family "Fira Code" :size 12 :weight 'semi-light)
-;;      doom-variable-pitch-font (font-spec :family "Fira Sans" :size 13))
+(setq doom-font (font-spec :family "Maple Mono NF CN" :size 14))
+;; (setq doom-font (font-spec :family "JetBrainsMono Nerd Font" :size 14))
+;; (setq doom-font (font-spec :family "FiraCode Nerd Font" :size 14))
+
+;; (set-fontset-font t 'hangul (font-spec :family "Freesentation"))
+(set-fontset-font t 'hangul (font-spec :family "S-Core Dream"))
 ;;
 ;; If you or Emacs can't find your font, use 'M-x describe-font' to look them
 ;; up, `M-x eval-region' to execute elisp code, and 'M-x doom/reload-font' to
@@ -32,22 +36,38 @@
 ;; There are two ways to load a theme. Both assume the theme is installed and
 ;; available. You can either set `doom-theme' or manually load a theme with the
 ;; `load-theme' function. This is the default:
-(setq doom-theme 'doom-one)
+(setq doom-theme 'doom-tokyo-night)
+(setq fancy-splash-image "/Users/xxxx/devs/repos/doom-emacs-splash/svg/doom/doomEmacsTokyoNight.svg")
+(add-to-list 'default-frame-alist '(undecorated-round . t))
 
 ;; This determines the style of line numbers in effect. If set to `nil', line
 ;; numbers are disabled. For relative line numbers, set this to `relative'.
-(setq display-line-numbers-type t)
+(setq display-line-numbers-type 'relative)
 
 ;; If you use `org' and don't want your org files in the default location below,
 ;; change `org-directory'. It must be set before org loads!
-(setq org-directory "~/org/")
+(setq org-directory "~/devs/org/")
 
+(setq org-journal-dir "~/devs/org/journal/")
+(defun org-journal-file-header-func (time)
+  "Custom function to create journal header."
+  (concat
+   (pcase org-journal-file-type
+     (`daily "#+TITLE: Daily Journal\n#+STARTUP: showeverything")
+     (`weekly "#+TITLE: Weekly Journal\n#+STARTUP: folded")
+     (`monthly "#+TITLE: Monthly Journal\n#+STARTUP: folded")
+     (`yearly "#+TITLE: Yearly Journal\n#+STARTUP: folded"))))
+
+(setq org-journal-file-header 'org-journal-file-header-func)
+(setq org-journal-date-format "%A, %d %B %Y")
 
 ;; Whenever you reconfigure a package, make sure to wrap your config in an
 ;; `after!' block, otherwise Doom's defaults may override your settings. E.g.
 ;;
 ;;   (after! PACKAGE
 ;;     (setq x y))
+(after! org (set-company-backend! 'org-mode 'company-files 'company-capf))
+(after! prog-mode (set-company-backend! 'prog-mode 'company-files 'company-capf 'company-yasnippet))
 ;;
 ;; The exceptions to this rule:
 ;;

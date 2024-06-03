@@ -222,7 +222,7 @@ brew install autojump
 
 # Note Taking
 
-[Emacs-plus](https://github.com/d12frosted/homebrew-emacs-plus?tab=readme-ov-file#installing-from-feature-branch)
+## [Emacs-plus](https://github.com/d12frosted/homebrew-emacs-plus?tab=readme-ov-file#installing-from-feature-branch)
 
 ```sh
 brew tap d12frosted/emacs-plus
@@ -230,12 +230,32 @@ brew install emacs-plus@29 --with-native-comp
 osascript -e 'tell application "Finder" to make alias file to posix file "/opt/homebrew/opt/emacs-plus@29/Emacs.app" at POSIX file "/Applications" with properties {name:"Emacs.app"}'
 ```
 
-[Doom Emacs](https://github.com/doomemacs/doomemacs/blob/master/docs/getting_started.org#on-macos)
+## [Doom Emacs](https://github.com/doomemacs/doomemacs/blob/master/docs/getting_started.org#on-macos)
 
 ```sh
 git clone --depth 1 https://github.com/doomemacs/doomemacs ~/.config/emacs
 ~/.config/emacs/bin/doom install
 ```
+
+#### CMake
+
+to build emacs packages
+
+```sh
+brew install cmake
+```
+
+# Terminal Session Manager
+
+## tmux
+
+Install
+
+```sh
+brew install tmux
+```
+
+[TPM](https://github.com/tmux-plugins/tpm)
 
 # Battery Limiter
 

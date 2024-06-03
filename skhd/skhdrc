@@ -104,10 +104,11 @@ ctrl + alt - g : yabai -m space --toggle padding; yabai -m space --toggle gap
 # open terminal
 alt - t : /Applications/Kitty.app/Contents/MacOS/kitty --single-instance -d ~ &> /dev/null
 alt - c : /Applications/Neovide.app/Contents/MacOS/neovide
-alt - i : /Applications/Arc.app/Contents/MacOS/Arc
+# alt - i : /Applications/Arc.app/Contents/MacOS/Arc
 # alt - v : /Applications/Visual\ Studio\ Code.app/Contents/MacOS/Electron
 # alt - s : /Applications/Spotify.app/Contents/MacOS/Spotify
-lalt - e : /Applications/Emacs.app/Contents/MacOS/Emacs
+# lalt - e : /Applications/Emacs.app/Contents/MacOS/Emacs
+lalt - e : /opt/homebrew/Cellar/emacs-plus@29/29.3/Emacs.app/Contents/MacOS/Emacs
 
 # open chrome
 # alt - space : yabai -m window --toggle float
