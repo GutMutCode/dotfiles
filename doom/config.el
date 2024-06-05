@@ -60,6 +60,7 @@
 
 (setq org-journal-file-header 'org-journal-file-header-func)
 (setq org-journal-date-format "%A, %d %B %Y")
+(setq org-hide-emphasis-markers t)
 
 ;; Whenever you reconfigure a package, make sure to wrap your config in an
 ;; `after!' block, otherwise Doom's defaults may override your settings. E.g.
