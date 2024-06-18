@@ -108,6 +108,9 @@ return {
           end,
           desc = "Close buffer",
         },
+
+        -- toggle ZenMode
+        ["<Leader>z"] = { "<cmd>ZenMode<cr>", desc = "Toggle ZenMode" },
       },
     },
   },

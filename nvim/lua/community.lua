@@ -26,14 +26,15 @@ return {
   { import = "astrocommunity.pack.zig" },
 
   --
-  { import = "astrocommunity.completion.codeium-vim" },
+  { import = "astrocommunity.completion.codeium-nvim" },
   { import = "astrocommunity.motion.nvim-surround" },
+  { import = "astrocommunity.editing-support.zen-mode-nvim" },
   -- hop: s
   { import = "astrocommunity.motion.hop-nvim" },
 
-  --
+  -- recipes
   { import = "astrocommunity.recipes.telescope-nvchad-theme" },
-  { import = "astrocommunity.recipes.neovide" },
-  { import = "astrocommunity.color.transparent-nvim" },
+  { import = "astrocommunity.recipes.astrolsp-no-insert-inlay-hints" },
+  -- { import = "astrocommunity.color.transparent-nvim" },
   -- import/override with your plugins folder
 }
