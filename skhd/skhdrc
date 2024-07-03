@@ -108,7 +108,7 @@ alt - c : /Applications/Neovide.app/Contents/MacOS/neovide
 # alt - v : /Applications/Visual\ Studio\ Code.app/Contents/MacOS/Electron
 # alt - s : /Applications/Spotify.app/Contents/MacOS/Spotify
 # lalt - e : /Applications/Emacs.app/Contents/MacOS/Emacs
-lalt - e : /opt/homebrew/Cellar/emacs-plus@29/29.3/Emacs.app/Contents/MacOS/Emacs
+lalt - e : /opt/homebrew/opt/emacs-plus@29/Emacs.app/Contents/MacOS/Emacs
 
 # open chrome
 # alt - space : yabai -m window --toggle float

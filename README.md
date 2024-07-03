@@ -262,3 +262,19 @@ brew install tmux
 ```sh
 curl -s https://raw.githubusercontent.com/actuallymentor/battery/main/setup.sh | bash
 ```
+
+# Remote Development
+
+## Docker
+
+For containered development
+
+```sh
+brew install docker
+```
+
+## [DevPod](https://devpod.sh/docs/getting-started/install#optional-install-devpod-cli)
+
+To create reproducible developer environment
+
+- No vendor lock-in

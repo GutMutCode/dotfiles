@@ -31,6 +31,8 @@ return {
   { import = "astrocommunity.editing-support.zen-mode-nvim" },
   -- hop: s
   { import = "astrocommunity.motion.hop-nvim" },
+  -- { import = "astrocommunity.markdown-and-latex.markdown-preview-nvim" },
+  { import = "astrocommunity.markdown-and-latex.vimtex" },
 
   -- recipes
   { import = "astrocommunity.recipes.telescope-nvchad-theme" },

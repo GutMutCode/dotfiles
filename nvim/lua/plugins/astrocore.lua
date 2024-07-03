@@ -66,10 +66,10 @@ return {
       -- first key is the mode
       n = {
         -- second key is the lefthand side of the map
+        L = { function() require("astrocore.buffer").nav(vim.v.count1) end, desc = "Next buffer" },
+        H = { function() require("astrocore.buffer").nav(-vim.v.count1) end, desc = "Previous buffer" },
 
         -- navigate buffer tabs
-        ["S-h"] = { function() require("astrocore.buffer").nav(vim.v.count1) end, desc = "Next buffer" },
-        ["S-l"] = { function() require("astrocore.buffer").nav(-vim.v.count1) end, desc = "Previous buffer" },
         ["-"] = { "<c-x>", desc = "Descrement number" },
         ["+"] = { "<c-a>", desc = "Increment number" },
 
@@ -111,6 +111,9 @@ return {
 
         -- toggle ZenMode
         ["<Leader>z"] = { "<cmd>ZenMode<cr>", desc = "Toggle ZenMode" },
+
+        -- toggle Markdown Preview
+        ["<Leader>mp"] = { "<cmd>MarkdownPreviewToggle<cr>", desc = "Toggle Markdown Preview" },
       },
     },
   },
