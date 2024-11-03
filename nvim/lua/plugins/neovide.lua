@@ -77,15 +77,26 @@ return {
     },
     mappings = {
       n = {
-        ["<C-=>"] = {
+        ["<D-=>"] = {
           function() change_scale_factor(vim.g.neovide_increment_scale_factor * vim.v.count1, true) end,
           desc = "Increase Neovide scale factor",
         },
-        ["<C-->"] = {
+        ["<D-->"] = {
           function() change_scale_factor(-vim.g.neovide_increment_scale_factor * vim.v.count1, true) end,
           desc = "Decrease Neovide scale factor",
         },
-        ["<C-0>"] = { reset_scale_factor, desc = "Reset Neovide scale factor" },
+        ["<D-0>"] = { reset_scale_factor, desc = "Reset Neovide scale factor" },
+        ["<D-c>"] = { '"+y', desc = "Copy" },
+        ["<D-v>"] = { '"+P', desc = "Paste" },
+      },
+      i = {
+        ["<D-v>"] = { "<C-R>+", desc = "Paste" },
+      },
+      c = {
+        ["<D-v>"] = { "<C-R>+", desc = "Paste" },
+      },
+      t = {
+        ["<D-v>"] = { '<C-\\><C-n>"+pi', desc = "Paste" },
       },
     },
   },

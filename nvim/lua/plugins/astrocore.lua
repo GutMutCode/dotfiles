@@ -115,6 +115,7 @@ return {
         -- toggle Markdown Preview
         ["<Leader>mp"] = { "<cmd>MarkdownPreviewToggle<cr>", desc = "Toggle Markdown Preview" },
       },
+      v = {},
     },
   },
 }

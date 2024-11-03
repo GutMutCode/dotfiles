@@ -106,9 +106,12 @@ alt - t : /Applications/Kitty.app/Contents/MacOS/kitty --single-instance -d ~ &>
 alt - c : /Applications/Neovide.app/Contents/MacOS/neovide
 # alt - i : /Applications/Arc.app/Contents/MacOS/Arc
 # alt - v : /Applications/Visual\ Studio\ Code.app/Contents/MacOS/Electron
-# alt - s : /Applications/Spotify.app/Contents/MacOS/Spotify
+alt - s : /Applications/Spotify.app/Contents/MacOS/Spotify
 # lalt - e : /Applications/Emacs.app/Contents/MacOS/Emacs
-lalt - e : /opt/homebrew/opt/emacs-plus@29/Emacs.app/Contents/MacOS/Emacs
+alt - e : /opt/homebrew/opt/emacs-plus@29/Emacs.app/Contents/MacOS/Emacs
 
 # open chrome
 # alt - space : yabai -m window --toggle float
+
+# toggle sketchybar
+shift + alt - space : sketchybar --bar hidden=toggle

@@ -21,7 +21,10 @@
 ;; See 'C-h v doom-font' for documentation and more examples of what they
 ;; accept. For example:
 ;;
-(setq doom-font (font-spec :family "Maple Mono NF CN" :size 14))
+(setq
+ doom-font (font-spec :family "Maple Mono NF CN" :size 14)
+ doom-variable-pitch-font (font-spec :family "Maple Mono NF CN")
+ global-prettify-symbols-mode t)
 ;; (setq doom-font (font-spec :family "JetBrainsMono Nerd Font" :size 14))
 ;; (setq doom-font (font-spec :family "FiraCode Nerd Font" :size 14))
 
@@ -98,3 +101,5 @@
 
 (add-to-list 'load-path "/Users/xxxx/.opam/default/share/emacs/site-lisp")
 (require 'ocp-indent)
+
+(after! org (setq org-tag-alist '(("@work" . ?w) ("@home" . ?h) ("laptop" . ?l))))

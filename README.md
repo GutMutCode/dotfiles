@@ -108,6 +108,14 @@ brew install nodejs
 
 https://go.dev/doc/install
 
+#### Rust
+
+Add rust-analyzer for neovim lsp
+
+```sh
+rustup component add rust-analyzer
+```
+
 # Unzip
 
 ```sh
