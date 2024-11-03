@@ -286,3 +286,7 @@ brew install docker
 To create reproducible developer environment
 
 - No vendor lock-in
+
+# Custom Status Bar
+
+## [Sketchybar](https://github.com/FelixKratz/SketchyBar)
