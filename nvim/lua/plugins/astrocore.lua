@@ -30,6 +30,8 @@ return {
         spell = false, -- sets vim.opt.spell
         signcolumn = "yes", -- sets vim.opt.signcolumn to yes
         wrap = false, -- sets vim.opt.wrap
+        -- fileencoding = "utf-16be",
+        -- fileencodings = "utf-16be",
       },
       g = { -- vim.g.<key>
         -- configure global vim variables (vim.g)
@@ -110,12 +112,20 @@ return {
         },
 
         -- toggle ZenMode
-        ["<Leader>z"] = { "<cmd>ZenMode<cr>", desc = "Toggle ZenMode" },
+        ["<Leader>z"] = { "<cmd>ZenMode<cr>", desc = " ZenMode" },
 
         -- toggle Markdown Preview
+        ["<Leader>m"] = { desc = "  Markdown" },
         ["<Leader>mp"] = { "<cmd>MarkdownPreviewToggle<cr>", desc = "Toggle Markdown Preview" },
       },
-      v = {},
+      v = {
+        -- toggle ZenMode
+        ["<Leader>z"] = { "<cmd>ZenMode<cr>", desc = " ZenMode" },
+
+        -- toggle Markdown Preview
+        ["<Leader>m"] = { desc = "  Markdown" },
+        ["<Leader>mp"] = { "<cmd>MarkdownPreviewToggle<cr>", desc = "Toggle Markdown Preview" },
+      },
     },
   },
 }

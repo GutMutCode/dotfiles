@@ -9,7 +9,8 @@ return {
       opts = function(_, opts)
         local maps = assert(opts.mappings)
         local prefix = "<Leader>r"
-        maps.n[prefix] = { desc = "Parrot functionalities" }
+        maps.n[prefix] = { desc = " Parrot" }
+        maps.v[prefix] = { desc = " Parrot" }
         maps.n[prefix .. "a"] = { "<cmd>PrtAsk<cr>", desc = "Parrot ask" }
         maps.n[prefix .. "n"] = { "<cmd>PrtChatNew<cr>", desc = "New chat" }
         maps.n[prefix .. "i"] = { "<cmd>PrtInfo<cr>", desc = "Info" }
@@ -18,11 +19,20 @@ return {
         maps.n[prefix .. "d"] = { "<cmd>PrtChatDelete<cr>", desc = "Delete chat" }
         maps.n[prefix .. "p"] = { "<cmd>PrtProvider<cr>", desc = "Select Provider" }
         maps.n[prefix .. "m"] = { "<cmd>PrtModel<cr>", desc = "Select Model" }
-        maps.n[prefix .. "y"] = { "<cmd>PrtChatPaste<cr>", desc = "Paste selected text" }
-        maps.v[prefix .. "r"] = { "<cmd>PrtRewrite<cr>", desc = "Rewrite selected text" }
-        maps.v[prefix .. "a"] = { "<cmd>PrtAppend<cr>", desc = "Append selected text" }
-        maps.v[prefix .. "p"] = { "<cmd>PrtPrepend<cr>", desc = "Prepend selected text" }
-        maps.v[prefix .. "t"] = { "<cmd>PrtRetry<cr>", desc = "Retry prompt" }
+        -- visual mode
+        maps.v[prefix .. "a"] = { "<cmd>PrtAsk<cr>", desc = "Parrot ask" }
+        maps.v[prefix .. "n"] = { "<cmd>PrtChatNew<cr>", desc = "New chat" }
+        maps.v[prefix .. "i"] = { "<cmd>PrtInfo<cr>", desc = "Info" }
+        maps.v[prefix .. "t"] = { "<cmd>PrtChatToggle<cr>", desc = "Toggle chat" }
+        maps.v[prefix .. "f"] = { "<cmd>PrtChatFinder<cr>", desc = "Find chat" }
+        maps.v[prefix .. "p"] = { "<cmd>PrtProvider<cr>", desc = "Select Provider" }
+        maps.v[prefix .. "m"] = { "<cmd>PrtModel<cr>", desc = "Select Model" }
+        maps.v[prefix .. "y"] = { ":'<,'>PrtChatPaste<cr>", desc = "Paste chat" }
+        maps.v[prefix .. "i"] = { ":'<,'>PrtImplement<cr>", desc = "Implement selected text" }
+        maps.v[prefix .. "r"] = { ":'<,'>PrtRewrite<cr>", desc = "Rewrite selected text" }
+        maps.v[prefix .. "a"] = { ":'<,'>PrtAppend<cr>", desc = "Append selected text" }
+        maps.v[prefix .. "p"] = { ":'<,'>PrtPrepend<cr>", desc = "Prepend selected text" }
+        maps.v[prefix .. "t"] = { ":'<,'>PrtRetry<cr>", desc = "Retry prompt" }
       end,
     },
   },

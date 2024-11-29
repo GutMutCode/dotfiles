@@ -2,7 +2,7 @@
 
 return {
   "yetone/avante.nvim",
-  build = ":AvanteBuild",
+  build = "make BUILD_FROM_SOURCE=true",
   cmd = {
     "AvanteAsk",
     "AvanteBuild",
@@ -23,7 +23,8 @@ return {
         local maps = assert(opts.mappings)
         local prefix = "<Leader>a"
 
-        maps.n[prefix] = { desc = "Avante functionalities" }
+        maps.n[prefix] = { desc = "󰚩 Avante" }
+        maps.v[prefix] = { desc = "󰚩 Avante" }
 
         maps.n[prefix .. "a"] = { function() require("avante.api").ask() end, desc = "Avante ask" }
         maps.v[prefix .. "a"] = { function() require("avante.api").ask() end, desc = "Avante ask" }
