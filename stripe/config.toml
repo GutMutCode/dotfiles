@@ -1,0 +1,12 @@
+color = ''
+project-name = 'default'
+[default]
+account_id = 'acct_1OVuSQJg16hMu55u'
+device_name = 'xxxxui-MacBookPro.local'
+live_mode_api_key = 'rk_live_***********************************************************************************************W7kf'
+live_mode_key_expires_at = '2025-04-24'
+live_mode_pub_key = 'pk_live_51OVuSQJg16hMu55ubWi3XEdplR27lZcKh7JqVf2QHyMJVLL6RDiOOAN9gdnUimCWVHpw3qhhfm4ywNRdyiqkw8rU00W4mkNgeZ'
+test_mode_api_key = 'rk_test_51OVuSQJg16hMu55uOtACO0m69jxTWozoFvhPoFIKaDcn9JnAlcY2RvBFYLsscw3mrCp5OyN0kPeDqf0cwOKNEvQ500tkpUuTyd'
+test_mode_key_expires_at = '2025-04-24'
+test_mode_pub_key = 'pk_test_51OVuSQJg16hMu55uXPKvyGveFcyhJbxAVVBhU6sz37edD3JdYhf61SqJxXcgNYObGSayyro4FCVHMJsuTohveHCw00ZGd0el7a'
+

@@ -1,4 +1,4 @@
-if true then return {} end
+-- if true then return {} end
 
 return {
   "olimorris/codecompanion.nvim",
@@ -7,7 +7,6 @@ return {
     "nvim-treesitter/nvim-treesitter",
     "hrsh7th/nvim-cmp", -- Optional: For using slash commands and variables in the chat buffer
     "nvim-telescope/telescope.nvim", -- Optional: For using slash commands
-    { "MeanderingProgrammer/render-markdown.nvim", ft = { "markdown", "codecompanion" } }, -- Optional: For prettier markdown rendering
     { "stevearc/dressing.nvim", opts = {} }, -- Optional: Improves `vim.ui.select`
     {
       "AstroNvim/astrocore",
@@ -24,8 +23,28 @@ return {
     require("codecompanion").setup {
       strategies = {
         chat = {
-          adapter = "anthropic",
+          adapter = "gemini",
         },
+        inline = {
+          adapter = "gemini",
+        },
+      },
+      adapters = {
+        gemini = function()
+          return require("codecompanion.adapters").extend("gemini", {
+            schema = {
+              model = {
+                default = "gemini-2.0-flash-exp",
+                choices = {
+                  "gemini-2.0-flash-exp",
+                  "gemini-1.5-flash",
+                  "gemini-1.5-pro",
+                  "gemini-1.0-pro",
+                },
+              },
+            },
+          })
+        end,
       },
     }
   end,

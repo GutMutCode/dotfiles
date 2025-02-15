@@ -12,16 +12,17 @@ return {
         maps.n[prefix] = { desc = " Parrot" }
         maps.v[prefix] = { desc = " Parrot" }
         maps.n[prefix .. "a"] = { "<cmd>PrtAsk<cr>", desc = "Parrot ask" }
-        maps.n[prefix .. "n"] = { "<cmd>PrtChatNew<cr>", desc = "New chat" }
+        maps.n[prefix .. "n"] = { "<cmd>PrtChatNew vsplit<cr>", desc = "New chat" }
         maps.n[prefix .. "i"] = { "<cmd>PrtInfo<cr>", desc = "Info" }
-        maps.n[prefix .. "t"] = { "<cmd>PrtChatToggle<cr>", desc = "Toggle chat" }
+        maps.n[prefix .. "t"] = { "<cmd>PrtChatToggle vsplit<cr>", desc = "Toggle chat" }
         maps.n[prefix .. "f"] = { "<cmd>PrtChatFinder<cr>", desc = "Find chat" }
         maps.n[prefix .. "d"] = { "<cmd>PrtChatDelete<cr>", desc = "Delete chat" }
         maps.n[prefix .. "p"] = { "<cmd>PrtProvider<cr>", desc = "Select Provider" }
         maps.n[prefix .. "m"] = { "<cmd>PrtModel<cr>", desc = "Select Model" }
+        maps.n[prefix .. "s"] = { "<cmd>PrtStatus<cr>", desc = "Status" }
         -- visual mode
         maps.v[prefix .. "a"] = { "<cmd>PrtAsk<cr>", desc = "Parrot ask" }
-        maps.v[prefix .. "n"] = { "<cmd>PrtChatNew<cr>", desc = "New chat" }
+        maps.v[prefix .. "n"] = { "<cmd>PrtChatNew vsplit<cr>", desc = "New chat" }
         maps.v[prefix .. "i"] = { "<cmd>PrtInfo<cr>", desc = "Info" }
         maps.v[prefix .. "t"] = { "<cmd>PrtChatToggle<cr>", desc = "Toggle chat" }
         maps.v[prefix .. "f"] = { "<cmd>PrtChatFinder<cr>", desc = "Find chat" }
@@ -33,6 +34,7 @@ return {
         maps.v[prefix .. "a"] = { ":'<,'>PrtAppend<cr>", desc = "Append selected text" }
         maps.v[prefix .. "p"] = { ":'<,'>PrtPrepend<cr>", desc = "Prepend selected text" }
         maps.v[prefix .. "t"] = { ":'<,'>PrtRetry<cr>", desc = "Retry prompt" }
+        maps.n[prefix .. "s"] = { "<cmd>PrtStatus<cr>", desc = "Status" }
       end,
     },
   },
@@ -44,14 +46,11 @@ return {
         anthropic = {
           api_key = os.getenv "ANTHROPIC_API_KEY",
         },
-        -- gemini = {
-        --   api_key = os.getenv "GEMINI_API_KEY",
-        -- },
+        gemini = {
+          api_key = os.getenv "GEMINI_API_KEY",
+        },
         groq = {
           api_key = os.getenv "GROQ_API_KEY",
-          -- topic = {
-          --   model = "llama-3.2-11b-text-preview",
-          -- },
         },
         -- mistral = {
         --   api_key = os.getenv "MISTRAL_API_KEY",
@@ -60,7 +59,7 @@ return {
           api_key = os.getenv "PERPLEXITY_API_KEY",
         },
         -- provide an empty list to make provider available (no API key required)
-        ollama = {},
+        -- ollama = {},
         -- openai = {
         --   api_key = os.getenv "OPENAI_API_KEY",
         -- },

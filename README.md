@@ -290,3 +290,8 @@ To create reproducible developer environment
 # Custom Status Bar
 
 ## [Sketchybar](https://github.com/FelixKratz/SketchyBar)
+
+# LaTex for Mac
+
+[MacTex](https://tug.org/mactex/)
+

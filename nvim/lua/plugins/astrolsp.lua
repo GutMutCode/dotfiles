@@ -41,6 +41,7 @@ return {
     servers = {
       -- "sourcekit",
       -- "pyright"
+      "julials",
     },
     -- customize language server configuration options passed to `lspconfig`
     ---@diagnostic disable: missing-fields

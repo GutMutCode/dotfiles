@@ -1,4 +1,5 @@
 vim.g.translator_target_lang = "ko"
+-- vim.g.translator_target_lang = "en"
 
 return {
   "voldikss/vim-translator",
@@ -9,7 +10,7 @@ return {
       local prefix = "<Leader>t"
       maps.v[prefix] = { desc = "󰊿 Translator" }
       maps.v[prefix .. "t"] = { ":'<,'>TranslateW<CR>", desc = "Translate" }
-      maps.v[prefix .. "r"] = { ":'<,'>TranslateR<CR>", desc = "Translate (replace)" }
+      maps.v[prefix .. "r"] = { ":'<,'>TranslateR --target_lang=en<CR>", desc = "Translate (replace)" }
     end,
   },
 }

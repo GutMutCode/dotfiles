@@ -30,6 +30,7 @@ return {
         spell = false, -- sets vim.opt.spell
         signcolumn = "yes", -- sets vim.opt.signcolumn to yes
         wrap = false, -- sets vim.opt.wrap
+        -- conceallevel = 2, -- conceal the markdown symbols
         -- fileencoding = "utf-16be",
         -- fileencodings = "utf-16be",
       },
